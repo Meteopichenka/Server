@@ -13,6 +13,7 @@ def main():
         if not data:
             break
         udata = data.decode("utf-8")
+        print("Data: " + data)
         print("Data: " + udata)
         conn.send(data.upper())
 
