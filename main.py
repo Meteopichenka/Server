@@ -1,6 +1,6 @@
 import threading
-from Server.listener import main as listener
-from Server.http_server import main as httpserv
+from listener import main as listener
+from http_server import main as httpserv
 
 def http_server_thread():
     httpserv()
