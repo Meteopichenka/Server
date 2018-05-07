@@ -1,28 +1,13 @@
 import threading
-from http.server import HTTPServer, CGIHTTPRequestHandler
-import socket
+from listener import main as listener
+from http_server import main as httpserv
 
 def http_server_thread():
-    server_address = ("", 8000)
-    httpd = HTTPServer(server_address, CGIHTTPRequestHandler)
-    httpd.serve_forever()
+    httpserv()
     pass
 
 def server_listener_thread():
-    sock = socket.socket()
-    sock.bind(('', 9090))
-    sock.listen(1)
-    conn, addr = sock.accept()
-
-    print('connected:', addr)
-
-    while True:
-        data = conn.recv(1024)
-        if not data:
-            break
-        conn.send(data.upper())
-
-    conn.close()
+    listener()
     pass
 
 http_server_thread = threading.Thread(target=http_server_thread, name="http_server_thread")
