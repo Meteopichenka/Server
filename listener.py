@@ -13,7 +13,6 @@ def main():
         if not data:
             break
         conn.send(data.upper())
-        print("Data: " + data)
 
 
     conn.close()
