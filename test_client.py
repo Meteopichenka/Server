@@ -5,7 +5,7 @@ import socket
 
 sock = socket.socket()
 sock.connect(('s3.skop.in.ua', 9090))
-sock.send('hello, world!')
+sock.send(b'hello, world!')
 
 data = sock.recv(1024)
 sock.close()
