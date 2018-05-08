@@ -16,5 +16,4 @@ def main():
         conn.send(data.upper())
         print(udata)
 
-
-    conn.close()
+        conn.close()
