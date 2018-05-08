@@ -3,7 +3,7 @@ import socket
 def main():
     sock = socket.socket()
     sock.bind(('', 9090))
-    sock.listen(1)
+    sock.listen(2)
     conn, addr = sock.accept()
 
     print('connected:', addr)
@@ -13,8 +13,9 @@ def main():
         if not data:
             break
         udata = data.decode("utf-8")
-        conn.send(data.upper())
+        conn.send(conn.send(b'OK'))
         print(udata)
+        conn.close()
 
 
-    conn.close()
+    sock.close()
