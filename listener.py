@@ -12,9 +12,8 @@ def main():
         data = conn.recv(1024)
         if not data:
             break
-        conn.send(data.upper())
-        print(data)
         udata = data.decode("utf-8")
+        conn.send(data.upper())
         print(udata)
 
 
