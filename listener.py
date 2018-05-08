@@ -19,3 +19,4 @@ def main():
 
 
     conn.close()
+    print("vla")
