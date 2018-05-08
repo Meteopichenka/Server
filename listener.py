@@ -1,4 +1,6 @@
 import socket
+from db_controler import push
+
 
 def main():
     sock = socket.socket()
@@ -18,5 +20,7 @@ def main():
             udata = data.decode("utf-8")
             conn.send(data.upper())
             print(udata)
-            
+            push(udata)
+
+
         conn.close()

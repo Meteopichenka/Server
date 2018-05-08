@@ -1,10 +1,11 @@
-import MySql
 
 def main():
     pass
 
-def push(t,h,p,w):
+def push(data):
+    f = open('test_data.txt', 'a+')
+    f.write(data)
+    f.close()
 
-    pass
 
 
