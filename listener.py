@@ -21,5 +21,6 @@ def main():
             arr = str(udata).split()
             l = len(arr)
             print(arr[-1])
+            print(arr[-2]
 
         conn.close()
