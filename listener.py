@@ -1,5 +1,4 @@
 import socket
-from db_controler import push
 import pymysql
 pymysql.install_as_MySQLdb()
 import MySQLdb
