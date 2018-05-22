@@ -2,8 +2,8 @@ import socket
 
 def main():
     sock = socket.socket()
-    sock.bind(('', 9090))
-    sock.listen(5)
+    sock.bind(('', 8080))
+    sock.listen(1)
     while True:
 
         conn, addr = sock.accept()
