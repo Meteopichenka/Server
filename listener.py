@@ -42,6 +42,7 @@ def main():
         conn.close()
 
 def push(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir):
+    print(temperature1," ",humidity1," ",temperature2," ",humidity2," ",pressure," ",wind_dir)
     conn = MySQLdb.connect('localhost', 'meteouser', 'kwZuq7b3', 'meteo')
     cursor = conn.cursor()
 
