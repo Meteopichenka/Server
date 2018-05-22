@@ -34,10 +34,10 @@ def main():
 
         conn.close()
 
-def push(t1, h1, t1, h2, p, w):
+def push(t1, h1, t2, h2, p, w):
     conn = MySQLdb.connect('localhost', 'username', 'password', 'table_name')
     cursor = conn.cursor()
 
-    cursor.execute("INSERT INTO table_name(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir) VALUES(t1, h1, t1, h2, p, w);")
+    cursor.execute("INSERT INTO table_name(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir) VALUES(t1, h1, t2, h2, p, w);")
 
     conn.close()
