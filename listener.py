@@ -20,6 +20,6 @@ def main():
             print(udata)
             arr = str(udata).split()
             print(arr)
-            print(arr[-7]," ",arr[-6]," ",arr[-5]," ",arr[-4]," ",arr[-3]," ",arr[-2]," ",arr[-1]," ",)
+            #print(arr[-7]," ",arr[-6]," ",arr[-5]," ",arr[-4]," ",arr[-3]," ",arr[-2]," ",arr[-1]," ",)
 
         conn.close()
