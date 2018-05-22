@@ -1,3 +1,55 @@
+$("document").ready(function(){
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'http://localhost/getData.php', false);
+  xhr.send();
+});
+
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+}
+
+// Helper method to parse the title tag from the response.
+function getTitle(text) {
+  return text.match('<title>(.*)?</title>')[1];
+}
+
+// Make the actual CORS request.
+function makeCorsRequest() {
+  // This is a sample server that supports CORS.
+  var url = 'http://html5rocks-cors.s3-website-us-east-1.amazonaws.com/index.html';
+
+  var xhr = createCORSRequest('GET', 'http://localhost/test/hello.txt');
+  if (!xhr) {
+    alert('CORS not supported');
+    return;
+  }
+
+  // Response handlers.
+  xhr.onload = function() {
+    var text = xhr.responseText;
+    var title = getTitle(text);
+    alert('Response from CORS request to ' + url + ': ' + title);
+  };
+
+  xhr.onerror = function() {
+    alert('Woops, there was an error making the request.');
+  };
+
+  xhr.send();
+}
+
 function showForm(){
  	$('#set_but').hide();
 	var settings = $('#set_block');
@@ -51,16 +103,28 @@ function change(elemnt) {
 	}
 	gArray[k].style.display = "block";
 }
+
+var openFile = function(event) {
+   var input = event.target;
+
+   var reader = new FileReader();
+   reader.onload = function(){
+     var text = reader.result;
+     $('#textid').html(reader.result.substring(0, 200));
+   };
+   reader.readAsText(input.files[0]);
+ };
+
 var ctx1 = document.getElementById("myChart1");
 var myChart = new Chart(ctx1, {
     type: 'line',
     data: {
-        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        labels: [1, 2, 3, 4, 5, 6],
         datasets: [{
 						label: "Temperature",
-            data: [3, 5, 55, 12, 30, -7, 5, 40, 20, 33],
+            data: [11, 10, 10, 12, 13, 15],
             backgroundColor: "transparent",
-            borderColor: "rgb(7, 189, 7)",
+            borderColor: "black", //rgb(7, 189, 7)
             borderWidth: 3
         }]
     },
@@ -79,10 +143,10 @@ var myChart = new Chart(ctx2, {
     type: 'line',
 		intersect: 'false',
     data: {
-        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        labels: [1, 2, 3, 4, 5, 6],
         datasets: [{
-						label: "Wind power",
-            data: [3, 5, 55, 12, 30, -7, 40, 40, 20, 33],
+						label: "Humidity",
+            data: [53, 55, 60, 62, 65, 66],
             backgroundColor: "transparent",
             borderColor: "rgb(7, 189, 7)",
             borderWidth: 3
@@ -104,35 +168,10 @@ var myChart = new Chart(ctx3, {
     type: 'line',
 		intersect: 'false',
     data: {
-        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        labels: [1, 2, 3, 4, 5, 6],
         datasets: [{
 						label: "Atmosphere preasure",
-            data: [3, 5, 55, 12, 30, -7, 30, 40, 20, 33],
-            backgroundColor: "transparent",
-            borderColor: "rgb(7, 189, 7)",
-            borderWidth: 3
-        }]
-    },
-    options:{
-        scales: {
-            yAxes: [{
-								stacked: true,
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-var ctx4 = document.getElementById("myChart4");
-var myChart = new Chart(ctx4, {
-    type: 'line',
-		intersect: 'false',
-    data: {
-        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        datasets: [{
-						label: "Humidity",
-            data: [3, 5, 55, 12, 30, -7, 0, 40, 20, 33],
+            data: [736, 740, 740, 740, 740, 740],
             backgroundColor: "transparent",
             borderColor: "rgb(7, 189, 7)",
             borderWidth: 3

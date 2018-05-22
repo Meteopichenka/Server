@@ -25,6 +25,6 @@ def main():
                     print(i)
                 if i == "Value:":
                     v = True
-            
+
 
         conn.close()

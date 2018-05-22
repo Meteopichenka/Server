@@ -42,6 +42,24 @@
     </div>
   </div>
 <div class="main container clearfix">
+  <div class = "current-data container-fluid">
+    <h2>Current data:</h2>
+    <div class = "current-db cdb1">
+      <span>15</span>
+    </div>
+    <div class = "current-db cdb2">
+      <span>66</span>
+    </div>
+    <div class = "current-db cdb3">
+      <span>740</span>
+    </div>
+    <div class = "current-db cdb4">
+      <span>Southern</span>
+    </div>
+  </div>
+  <div class = "prediction-data container-fluid">
+    <h2>Prediction for tomorrow:</h2>
+  </div>
 	<div class = "container-fluid holder" id = "holder">
 		<div class = "data-block">
 			<div class = "data_item item1" id = "item1" onclick="change(this)">
@@ -53,21 +71,15 @@
 			<div class = "data_item item3" id = "item3" onclick="change(this)">
 
 			</div>
-			<div class = "data_item item4" id = "item4" onclick="change(this)">
-
-			</div>
 		</div>
     <div class = "graphic_block graphic1">
-      <canvas id="myChart1" class = "canv" height = "100"><canvas>
+      <canvas id="myChart1" class = "canv" height = "90"><canvas>
     </div>
     <div class = "graphic_block graphic2">
-      <canvas id="myChart2" class ="canv" height = "100"></canvas>
+      <canvas id="myChart2" class ="canv" height = "90"></canvas>
     </div>
     <div class = "graphic_block graphic3">
-      <canvas id="myChart3" class = "canv" height = "100"></canvas>
-    </div>
-    <div class = "graphic_block graphic4">
-      <canvas id="myChart4" height= "100"></canvas>
+      <canvas id="myChart3" class = "canv" height = "90"></canvas>
     </div>
 	</div>
 	<div class = "container">
@@ -76,6 +88,8 @@
 		</div>
 	</div>
 </div>
+
+
 	<script src = "./materials/script.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -106,6 +106,67 @@ header > form > input[type = "submit"] {
 	background-color: white;
 	height: calc(100vh - 65px);
 }
+.current-data {
+	height: 110px;
+	margin-top: 20px;
+	padding: 0;
+}
+.current-data h2 {
+	font-family: Arial;
+	color: black;
+}
+.current-db span {
+	margin-left: 80px;
+	font-size: 40px;
+}
+.current-db {
+	height: 60px;
+	width: 25%;
+	float: left;
+	transition: .2s;
+	position: relative;
+}
+.current-db:hover {
+	background-color: #e7fae6;
+}
+.current-db::after {
+	content: '';
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	top: 0;
+	left: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.current-db > span {
+	font-family: Tahoma;
+}
+.cdb1::after {
+	background-image: url("temperature.png");
+}
+.cdb2::after{
+	background-image: url("humidity.png");
+}
+.cdb3::after {
+	background-image: url("atm_p.png");
+}
+.cdb4::after{
+	background-image: url("wind.png");
+}
+.cdb4 {
+	line-height: 60px;
+}
+.cdb4 span {
+	font-size: 26px;
+	margin-left: 60px;
+}
+.prediction-data {
+	height: 90px;
+	margin-top: 10px;
+	padding: 0;
+	font-family: Arial;
+}
 .holder {
 	height: 300px;
 	padding: 0px;
@@ -115,14 +176,14 @@ header > form > input[type = "submit"] {
 .data-block {
 	margin-top: 20px;
 	height: 100%;
-	width: 200px;
+	width: 100px;
 	padding: 0;
 	height: 300px;
 }
 .data_item {
 	display: block;
 	background-color: white;
-	height: 75px;
+	height: 100px;
 	width: 100%;
 	z-index: 5;
 	position: relative;
@@ -139,8 +200,8 @@ header > form > input[type = "submit"] {
 	content: '';
 	width: 57.5px;
 	height: 57.5px;
-	top: 5px;
-	left: 5px;
+	top: calc((100% - 57.5px) / 2);
+	left: 10px;
 	z-index: 100;
 	position: absolute;
 	background-size: cover;
@@ -149,13 +210,10 @@ header > form > input[type = "submit"] {
 	background-image: url("temperature.png");
 }
 .item2::after {
-	background-image: url("wind.png");
+	background-image: url("humidity.png");
 }
 .item3::after {
 	background-image: url("atm_p.png");
-}
-.item4::after {
-	background-image: url("humidity.png");
 }
 .data_item > div {
 	margin-left: 50px;
@@ -171,7 +229,7 @@ header > form > input[type = "submit"] {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: calc(100% - 200px);
+	width: calc(100% - 100px);
 	display: none;
 	z-index: 2;
 	border-bottom: 1px solid #188500;
@@ -254,19 +312,22 @@ header > form > input[type = "submit"] {
 }
 @media only screen and (max-width: 1200px){
 .canv {
-	height: 85px;
+	height: 75px;
+}
+.cdb4 span {
+	font-size: 20px;
 }
 }
 @media only screen and (max-width: 990px){
 .canv {
-	height: 55px
+	height: 54px;
 }
 }
 @media only screen and (max-width: 767px){
 .graphic_block {
 	display: none;
 	width: 100%;
-	height: 200px;
+	height: 160px;
 	background-color: #f7fdf7;
 	border-right: none;
 }
@@ -302,6 +363,24 @@ header > form > input[type = "submit"] {
 .graphic5 {
 	top: 300px;
 }
+.current-data {
+	height: 150px;
+	margin-top: 10px;
+}
+.current-db {
+	width: 50%;
+	text-align: center;
+	height: 50px;
+	margin-bottom: 10px;
+}
+.current-db::after {
+	height: 50px;
+	width: 50px;
+}
+.current-db span {
+	margin-left: 40px;
+}
+
 }
 @media only screen and (max-width: 680px){
 .logo > span {
@@ -315,7 +394,7 @@ header > form > input[type = "submit"] {
 	border-bottom: 1px solid #188500;
 }
 .graphic_block {
-	height: 200px;
+	height: 130px;
 	display: none;
 }
 .navbar {
@@ -325,12 +404,16 @@ header > form > input[type = "submit"] {
 @media only screen and (max-width: 576px){
 .logo > span {
 	font-size: 36px;
+	text-align: left;
 }
 header > form {
 	display: none;
 }
 .set {
 	display: block;
+}
+.cdb4 > span {
+	font-size: 18px;
 }
 }
 @media only screen and (max-width: 400px){
