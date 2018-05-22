@@ -28,7 +28,14 @@ def main():
                     res.append(i)
                 if i == "Value:":
                     v = True
-            push(res[0],res[1],res[2],res[3],res[5],0)
+            print(res)
+            t1 = res[0]
+            h1 = res[1]
+            t2 = res[2]
+            h2 = res[3]
+            p = res[5]
+            w = 0
+            push(t1, h1, t2, h2, p, w)
 
 
 
