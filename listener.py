@@ -1,8 +1,8 @@
 import socket
-import pymysql
+'''import pymysql
 pymysql.install_as_MySQLdb()
 import MySQLdb
-
+'''
 
 def main():
     sock = socket.socket()
@@ -29,11 +29,11 @@ def main():
         conn.close()
 def push(t1,h1,t2,h2,p,w):
     print(t1," ",h1," ",t2," ",h2," ",p," ",w)
-    db = MySQLdb.connect("localhost", "meteouser", "kwZuq7b3", "meteo")
+    '''db = MySQLdb.connect("localhost", "meteouser", "kwZuq7b3", "meteo")
 
     cursor = db.cursor()
 
     cursor.execute(
         "INSERT INTO first (temperature1, humidity1, temperature2, humidity2, pressure, wind_dir) VALUES (t1,h1,t2,h2,p,w)")
 
-    db.close()
+    db.close()'''
