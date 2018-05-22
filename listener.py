@@ -19,6 +19,12 @@ def main():
             conn.send(data.upper())
             print(udata)
             arr = str(udata).split()
+            v = False
+            for i in arr:
+                if v:
+                    print(i)
+                if i == "Value:":
+                    v = True
             l = len(arr)
             print(arr[10])
             print(arr[9])
