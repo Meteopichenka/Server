@@ -18,5 +18,7 @@ def main():
             udata = data.decode("utf-8")
             conn.send(data.upper())
             print(udata)
+            arr = str(udata).split()
+            print(arr[-7]," ",arr[-6]," ",arr[-5]," ",arr[-4]," ",arr[-3]," ",arr[-2]," ",arr[-1]," ",)
 
         conn.close()
