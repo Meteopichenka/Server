@@ -33,7 +33,7 @@ def main():
             h1 = 1#res[1]
             t2 = 1#res[2]
             h2 = 1#res[3]
-            p = 1#res[5]
+            p = 1
             w = 0
             push(t1, h1, t2, h2, p, w)
 
