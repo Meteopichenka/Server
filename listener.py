@@ -25,8 +25,6 @@ def main():
                     print(i)
                 if i == "Value:":
                     v = True
-            l = len(arr)
-            print(arr[10])
-            print(arr[9])
+            
 
         conn.close()
