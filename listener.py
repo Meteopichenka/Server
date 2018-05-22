@@ -29,11 +29,11 @@ def main():
                 if i == "Value:":
                     v = True
             print(res)
-            t1 = res[0]
-            h1 = res[1]
-            t2 = res[2]
-            h2 = res[3]
-            p = res[5]
+            t1 = 1#res[0]
+            h1 = 1#res[1]
+            t2 = 1#res[2]
+            h2 = 1#res[3]
+            p = 1#res[5]
             w = 0
             push(t1, h1, t2, h2, p, w)
 
