@@ -29,27 +29,12 @@ def main():
                 if i == "Value:":
                     v = True
             print(res)
-            t1 = 1#res[0]
-            h1 = 1#res[1]
-            t2 = 1#res[2]
-            h2 = 1#res[3]
-            p = 1
-            w = 0
-            push(res)
+            push(res[0],res[1],res[2],res[3],res[4],res[5])
 
 
 
         conn.close()
-def push (inp):
-    print(inp)
-    conn = MySQLdb.connect('localhost', 'meteouser', 'kwZuq7b3', 'meteo')
-    cursor = conn.cursor()
-    date = "INSERT INTO first(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir) VALUES(%s, %s,%s,%s,%s,%s);"
-    value = tuple(inp)
-    cursor.execute(date, value)
-    conn.commit()
-    cursor.close()
-    conn.close()
+
 
 def push(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir):
     print(temperature1," ",humidity1," ",temperature2," ",humidity2," ",pressure," ",wind_dir)
