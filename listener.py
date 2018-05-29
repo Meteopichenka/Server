@@ -28,14 +28,15 @@ def main():
                     res.append(i)
                 if i == "Value:":
                     v = True
-            print(res)
             d =[0,0,0,0,0,0]
             i=0
+            index =0
             for r in res:
-                if i != 4:
+                if index !=4:
                     d[i] = r
-                    i+=1
-
+                    i += 1
+                index += 1
+            print(d)
             push(d[0],d[1],d[2],d[3],d[4],d[5])
 
 
@@ -51,5 +52,5 @@ def push(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir):
     value = (temperature1, humidity1, temperature2, humidity2, pressure, wind_dir)
     cursor.execute(date,value)
     conn.commit()
-    #cursor.close()
+    cursor.close()
     conn.close()
