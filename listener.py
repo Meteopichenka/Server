@@ -36,7 +36,7 @@ def main():
                     d[i] = r
                     i+=1
 
-            #push(res[0],res[1],res[2],res[3],res[5],res[6])
+            push(d[0],d[1],d[2],d[3],d[4],d[5])
 
 
 
