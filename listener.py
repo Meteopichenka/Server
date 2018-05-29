@@ -47,5 +47,5 @@ def push(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir):
     cursor = conn.cursor()
 
     cursor.execute("INSERT INTO first(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir) VALUES(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir);")
-
+    cursor.commit()
     conn.close()
