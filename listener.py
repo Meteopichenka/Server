@@ -28,7 +28,7 @@ def main():
                     res.append(i)
                 if i == "Value:":
                     v = True
-            '''d =[0,0,0,0,0,0]
+            d =[0,0,0,0,0,0]
             i=0
             index =0
             for r in res:
@@ -36,10 +36,9 @@ def main():
                     d[i] = r
                     i += 1
                 index += 1
-            print(d)
-            push(d[0],d[1],d[2],d[3],d[4],d[5])'''
-            res.pop(4)
-            push(res[0],res[1],res[2],res[3],res[4],res[5])
+            if d[0] != 0 and d[1] != 0:
+                print(d)
+                push(d[0],d[1],d[2],d[3],d[4],d[5])
 
 
 
