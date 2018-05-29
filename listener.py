@@ -51,5 +51,5 @@ def push(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir):
     value = (temperature1, humidity1, temperature2, humidity2, pressure, wind_dir)
     cursor.execute(date,value)
     conn.commit()
-    cursor.close()
+    #cursor.close()
     conn.close()
