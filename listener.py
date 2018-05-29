@@ -12,37 +12,36 @@ def main():
 
         print('connected:', addr)
         while True:
-            data = conn.recv(1024)
+            try:
+                data = conn.recv(1024)
 
-            if not data:
-                break
+                if not data:
+                    break
 
-            udata = data.decode("utf-8")
-            conn.send(data.upper())
-            print(udata)
-            arr = str(udata).split()
-            v = False
-            res = []
-            for i in arr:
-                if v:
-                    res.append(i)
-                if i == "Value:":
-                    v = True
-            d =[0,0,0,0,0,0]
-            i=0
-            index =0
-            for r in res:
-                if index !=4:
-                    d[i] = r
-                    i += 1
-                index += 1
-            if d[0] != 0 and d[1] != 0:
-                print(d)
-                push(d[0],d[1],d[2],d[3],d[4],d[5])
-
-
-
-
+                udata = data.decode("utf-8")
+                conn.send(data.upper())
+                print(udata)
+                arr = str(udata).split()
+                v = False
+                res = []
+                for i in arr:
+                    if v:
+                        res.append(i)
+                    if i == "Value:":
+                        v = True
+                d =[0,0,0,0,0,0]
+                i=0
+                index =0
+                for r in res:
+                    if index !=4:
+                        d[i] = r
+                        i += 1
+                    index += 1
+                if d[0] != 0 and d[1] != 0:
+                    print(d)
+                    push(d[0],d[1],d[2],d[3],d[4],d[5])
+            except:
+                print("error")
         conn.close()
 
 
