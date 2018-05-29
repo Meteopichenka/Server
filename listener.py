@@ -29,7 +29,7 @@ def main():
                 if i == "Value:":
                     v = True
             print(res)
-            push(res[0],res[1],res[2],res[3],res[4],res[5])
+            #push(res[0],res[1],res[2],res[3],res[4],res[5])
 
 
 
