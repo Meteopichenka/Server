@@ -29,7 +29,14 @@ def main():
                 if i == "Value:":
                     v = True
             print(res)
-            #push(res[0],res[1],res[2],res[3],res[4],res[5])
+            d =[0,0,0,0,0,0]
+            i=0
+            for r in res:
+                if i != 4:
+                    d[i] = r
+                    i+=1
+
+            #push(res[0],res[1],res[2],res[3],res[5],res[6])
 
 
 
