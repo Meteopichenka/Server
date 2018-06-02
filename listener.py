@@ -15,7 +15,7 @@ def main():
 
         print('connected:', addr)
         while True:
-            #try:
+            try:
                 data = conn.recv(1024)
 
                 if not data:
@@ -42,16 +42,15 @@ def main():
                     index += 1
 
                 check_push(d)
-
-            #except:
-            #    print("error")
+            except:
+                print("error")
         conn.close()
 def check_push(d =[]):
     global last_pressure
     if d[0] != 0 and d[2] != 0:
         today = datetime.date.today()
-        pressure = int(round(float( d[4])))
-        forecast = Zambretti.ZambrettiCode(pressure, today.month, int(d[5]), (pressureTrend((last_pressure), float(d[4]))))
+        pressure = int(round(float(d[4])))
+        forecast = Zambretti.ZambrettiCode(pressure, today.month, int(d[5]), float(pressureTrend((last_pressure), float(d[4]))))
         d.append(forecast)
         print(d)
 

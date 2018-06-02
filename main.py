@@ -16,6 +16,3 @@ server_listener_thread = threading.Thread(target=server_listener_thread, name="s
 
 http_server_thread.start()
 server_listener_thread.start()
-
-#ttp_server_thread.join()
-#server_listener_thread.join()

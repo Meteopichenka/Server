@@ -78,18 +78,16 @@ def ZambrettiText(letter):
 
 
 def pressureTrend(pressure1, pressure2):
-    eps = 0.01;
+    eps = 0.01
 
-    result = (pressure2 - pressure1) / pressure1;
+    result = (pressure2 - pressure1) / pressure1
 
     if abs(result) <= eps:
-        result = 0.0;
+        result = 0.0
 
     if result < 0:
-        result = -0.2;
+        result = -0.2
     elif result > 0:
-        result = 0.2;
+        result = 0.2
 
-    return result;
-
-#print(ZambrettiCode(900, 6, 14, pressureTrend(980, 1003)))
+    return result
