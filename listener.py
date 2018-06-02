@@ -50,7 +50,8 @@ def check_push(d =[]):
     global last_pressure
     if d[0] != 0 and d[2] != 0:
         today = datetime.date.today()
-        d.append(Zambretti.ZambrettiCode(d[4], today.month, d[5], pressureTrend(float(last_pressure), float(d[4]))))
+        forecast = Zambretti.ZambrettiCode(d[4], today.month, d[5], float(pressureTrend(float(last_pressure), float(d[4]))))
+        d.append(forecast)
         print(d)
 
         push(d[0], d[1], d[2], d[3], d[4], d[5], d[6])
@@ -75,7 +76,7 @@ def push(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir, f
 def pressureTrend(pressure1, pressure2):
     eps = 0.01;
 
-    result = (pressure2 - pressure1) / pressure1;
+    result = float((pressure2 - pressure1) / pressure1);
 
     if abs(result) <= eps:
         result = 0.0;
