@@ -60,18 +60,21 @@ def check_push(d =[]):
 def push(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir, forecast):
 
     print(temperature1," ",humidity1," ",temperature2," ",humidity2," ",pressure," ",wind_dir, " ", forecast)
+    try:
+        conn = MySQLdb.connect('localhost', 'meteouser', 'kwZuq7b3', 'meteo')
+        cursor = conn.cursor()
 
-    conn = MySQLdb.connect('localhost', 'meteouser', 'kwZuq7b3', 'meteo')
-    cursor = conn.cursor()
+        date = "INSERT INTO first(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir) VALUES(%s, %s,%s,%s,%s,%s);"
+        value = (temperature1, humidity1, temperature2, humidity2, pressure, wind_dir)
 
-    date = "INSERT INTO first(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir) VALUES(%s, %s,%s,%s,%s,%s);"
-    value = (temperature1, humidity1, temperature2, humidity2, pressure, wind_dir)
+        cursor.execute(date, value)
 
-    cursor.execute(date, value)
+        conn.commit()
+        cursor.close()
+        conn.close()
+    except:
+        print("data push error")
 
-    conn.commit()
-    cursor.close()
-    conn.close()
 
 def pressureTrend(pressure1, pressure2):
     eps = 0.01;
