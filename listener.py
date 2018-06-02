@@ -40,6 +40,8 @@ def main():
                         d[i] = r
                         i += 1
                     index += 1
+
+                print(d)
                 if d[0] != 0 and d[2] != 0:
                     today = datetime.date.today()
                     d.append(Zambretti.ZambrettiCode(d[4], today.month, d[5], pressureTrend(last_pressure, d[4])))
