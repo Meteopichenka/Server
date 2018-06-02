@@ -50,7 +50,7 @@ def check_push(d =[]):
     global last_pressure
     if d[0] != 0 and d[2] != 0:
         today = datetime.date.today()
-        d.append(Zambretti.ZambrettiCode(d[4], today.month, d[5], pressureTrend(last_pressure, d[4])))
+        d.append(Zambretti.ZambrettiCode(d[4], today.month, d[5], pressureTrend(last_pressure, float(d[4]))))
         print(d)
 
         push(d[0], d[1], d[2], d[3], d[4], d[5], d[6])
