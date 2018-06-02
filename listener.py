@@ -15,7 +15,7 @@ def main():
 
         print('connected:', addr)
         while True:
-            try:
+            #try:
                 data = conn.recv(1024)
 
                 if not data:
@@ -42,8 +42,8 @@ def main():
                     index += 1
 
                 check_push(d)
-            except:
-                print("error")
+            #except:
+             #   print("error")
         conn.close()
 def check_push(d =[]):
     global last_pressure
