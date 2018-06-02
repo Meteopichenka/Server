@@ -3,7 +3,7 @@ import MySQLdb
 import Zambretti
 import datetime
 
-last_pressure = 1030
+last_pressure = 1030.0
 
 def main():
     sock = socket.socket()
@@ -66,7 +66,7 @@ def push(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir, f
     date = "INSERT INTO first(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir) VALUES(%s, %s,%s,%s,%s,%s);"
     value = (temperature1, humidity1, temperature2, humidity2, pressure, wind_dir)
 
-    cursor.execute(date,value)
+    cursor.execute(date, value)
 
     conn.commit()
     cursor.close()
