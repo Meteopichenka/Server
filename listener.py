@@ -1,6 +1,9 @@
 import socket
 import MySQLdb
+import Zambretti
+import datetime
 
+last_pressure = 1030
 
 def main():
     sock = socket.socket()
@@ -37,21 +40,44 @@ def main():
                         d[i] = r
                         i += 1
                     index += 1
-                if d[0] != 0 and d[1] != 0:
+                if d[0] != 0 and d[2] != 0:
+                    today = datetime.date.today()
+                    d.append(Zambretti.ZambrettiCode(d[4], today.month, d[5], pressureTrend(last_pressure, d[4])))
                     print(d)
-                    push(d[0],d[1],d[2],d[3],d[4],d[5])
+
+                    push(d[0],d[1],d[2],d[3],d[4],d[5],d[6])
+                    last_pressure = d[4]
             except:
                 print("error")
         conn.close()
 
+def push(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir, forecast):
 
-def push(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir):
-    print(temperature1," ",humidity1," ",temperature2," ",humidity2," ",pressure," ",wind_dir)
+    print(temperature1," ",humidity1," ",temperature2," ",humidity2," ",pressure," ",wind_dir, " ", forecast)
+
     conn = MySQLdb.connect('localhost', 'meteouser', 'kwZuq7b3', 'meteo')
     cursor = conn.cursor()
+
     date = "INSERT INTO first(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir) VALUES(%s, %s,%s,%s,%s,%s);"
     value = (temperature1, humidity1, temperature2, humidity2, pressure, wind_dir)
+
     cursor.execute(date,value)
+
     conn.commit()
     cursor.close()
     conn.close()
+
+def pressureTrend(pressure1, pressure2):
+    eps = 0.01;
+
+    result = (pressure2 - pressure1) / pressure1;
+
+    if abs(result) <= eps:
+        result = 0.0;
+
+    if result < 0:
+        result = -0.2;
+    elif result > 0:
+        result = 0.2;
+
+    return result;
