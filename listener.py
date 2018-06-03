@@ -64,8 +64,8 @@ def push(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir, f
         conn = MySQLdb.connect('localhost', 'meteouser', 'kwZuq7b3', 'meteo')
         cursor = conn.cursor()
 
-        date = "INSERT INTO first(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir) VALUES(%s, %s,%s,%s,%s,%s);"
-        value = (temperature1, humidity1, temperature2, humidity2, pressure, wind_dir)
+        date = "INSERT INTO first(temperature1, humidity1, temperature2, humidity2, pressure, wind_dir, forecast) VALUES(%s, %s,%s,%s,%s,%s,%s);"
+        value = (temperature1, humidity1, temperature2, humidity2, pressure, wind_dir,forecast)
 
         cursor.execute(date, value)
 
