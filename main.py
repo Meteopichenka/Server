@@ -11,12 +11,11 @@ def server_listener_thread():
     listener()
     pass
 def php_run():
+    subprocess.call("materials/alpha.php")
 
-    result = subprocess.run(
-    ['php', 'material/alpha.php'],    # program and arguments
-    stdout=subprocess.PIPE,  # capture stdout
-    check=True)
-    print(result.stdout)
+    # if you want output
+    proc = subprocess.Popen("materials/alpha.php", shell=True, stdout=subprocess.PIPE)
+    script_response = proc.stdout.read()
 
 http_server_thread = threading.Thread(target=http_server_thread, name="http_server_thread")
 server_listener_thread = threading.Thread(target=server_listener_thread, name="server_listener_thread")
