@@ -1,54 +1,74 @@
 $("document").ready(function(){
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://localhost/getData.php', false);
-  xhr.send();
+  var request = new XMLHttpRequest();
+
+  request.open('GET', 'http://localhost/data.json', true);
+
+  request.onload = function () {
+	// begin accessing JSON data here
+	var data = JSON.parse(this.response);
+
+  $('#temperatureID').html(data.temperature);
+  $('#humidityID').html(data.humidity);
+  $('#pressureID').html(data.pressure);
+  var wind = data.winddir;
+  switch(wind) {
+    case 0:
+      $('#windID').html("Північний");
+      break;
+    case 1:
+      $('#windID').html("Північно-східний");
+      break;
+    case 2:
+      $('#windID').html("Північно-східний");
+      break;
+    case 3:
+      $('#windID').html("Північно-східний");
+      break;
+    case 4:
+      $('#windID').html("Східний");
+      break;
+    case 5:
+      $('#windID').html("Південно-східний");
+      break;
+    case 6:
+      $('#windID').html("Південно-східний");
+      break;
+    case 7:
+      $('#windID').html("Південно-східний");
+      break;
+    case 8:
+      $('#windID').html("Південний");
+      break;
+    case 9:
+      $('#windID').html("Південно-західний");
+      break;
+    case 10:
+      $('#windID').html("Південно-західний");
+      break;
+    case 11:
+      $('#windID').html("Південно-західний");
+      break;
+    case 12:
+      $('#windID').html("Західний");
+      break;
+    case 13:
+      $('#windID').html("Північно-західний");
+      break;
+    case 14:
+      $('#windID').html("Північно-західний");
+      break;
+    case 15:
+      $('#windID').html("Північно-західний");
+      break;
+    default:
+      $('#windID').html("nevidomo");
+      break;  
+  }
+}
+
+request.send();
 });
 
-function createCORSRequest(method, url) {
-  var xhr = new XMLHttpRequest();
-  if ("withCredentials" in xhr) {
-    // XHR for Chrome/Firefox/Opera/Safari.
-    xhr.open(method, url, true);
-  } else if (typeof XDomainRequest != "undefined") {
-    // XDomainRequest for IE.
-    xhr = new XDomainRequest();
-    xhr.open(method, url);
-  } else {
-    // CORS not supported.
-    xhr = null;
-  }
-  return xhr;
-}
-
-// Helper method to parse the title tag from the response.
-function getTitle(text) {
-  return text.match('<title>(.*)?</title>')[1];
-}
-
-// Make the actual CORS request.
-function makeCorsRequest() {
-  // This is a sample server that supports CORS.
-  var url = 'http://html5rocks-cors.s3-website-us-east-1.amazonaws.com/index.html';
-
-  var xhr = createCORSRequest('GET', 'http://localhost/test/hello.txt');
-  if (!xhr) {
-    alert('CORS not supported');
-    return;
-  }
-
-  // Response handlers.
-  xhr.onload = function() {
-    var text = xhr.responseText;
-    var title = getTitle(text);
-    alert('Response from CORS request to ' + url + ': ' + title);
-  };
-
-  xhr.onerror = function() {
-    alert('Woops, there was an error making the request.');
-  };
-
-  xhr.send();
-}
 
 function showForm(){
  	$('#set_but').hide();
